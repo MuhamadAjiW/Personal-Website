@@ -22,23 +22,14 @@ export class MessageRepository{
         return this.collection;
     }
 
-    async create(message: string){
+    async create(message: Message){
         const collection = await this.getCollection();
-
-        const currentTime = new Date();
-        const entry = Message.parse({
-            timestamp: currentTime,
-            content: message
-        });
-
-        const result = await collection.insertOne(entry);
-
-        console.log(`[${currentTime}] New message received: ${message}`);
+        const result = await collection.insertOne(message);
         return result;
     }
 
     async get(
-        asc: boolean = false,
+        asc: boolean = true,
         amount?: number,
         startDate?: Date,
         endDate?: Date
@@ -79,7 +70,6 @@ export class MessageRepository{
         let result = await collection
             .deleteMany(query)
 
-        console.log(`${result.deletedCount} document(s) deleted`);
         return result;
     }
 }
