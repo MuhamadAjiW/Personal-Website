@@ -16,9 +16,9 @@ echo "Starting personal web..."
 echo "Starting database..."
 docker compose up --build -d
 echo "Starting backend..."
-cd personal-backend && npm run start &
+cd personal-backend && rm be-app.log && npm run start >> be-app.log 2>&1 &
 echo "Starting frontend..."
-cd personal-frontend && npm run start &
-echo "Personal web online"
+cd personal-frontend && rm fe-app.log && npm run start >> fe-app.log 2>&1 &
+echo "Initialization complete, check respective logs for status."
 
 wait
