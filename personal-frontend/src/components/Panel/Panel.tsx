@@ -11,6 +11,7 @@ interface PageProps {
 const Panel : React.FC<PageProps> = ({panelNum: pageNum, children, id}) => {
     const [isVisible, setVisible] = useState(false);
     const hidden_style = useRef("page-canvas hidden");
+    const pageBaseRef = useRef(null);
     let startPoint = pageNum * window.innerHeight;
     let endPoint = (pageNum + 1) * window.innerHeight;
 
@@ -41,7 +42,7 @@ const Panel : React.FC<PageProps> = ({panelNum: pageNum, children, id}) => {
 
     return (
       <>
-        <div className="page-base" id={id? id : ""}>
+        <div className="page-base" id={id? id : ""} ref={pageBaseRef}>
           <div className={isVisible? "page-canvas animate-fade-in opacity-1" : hidden_style.current}>
             {children}
           </div>

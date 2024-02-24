@@ -24,7 +24,7 @@ function App() {
           <Showcase panelNum={6} title="Cashoria" desc="A Java based desktop app using Swing for cashier/restaurant management. The app supports plugins and is quite extensible.\nThis is a group project so don't give me all the credit. See the name of the other members at the start of the gif." show_path="/src/assets/gif/javapp.gif" />
           <Showcase panelNum={7} title="Bacaa" desc="A Web based app for audiobooks. The app is made using microservices architecture with PHP, express, react, and java.\nThis is a group project so don't give me all the credit. Though you have to look at my github to see the other members." show_path="/src/assets/gif/bacaa.gif" />
           <Showcase panelNum={8} title="This website" desc="Well? I made it myself using react and tailwind and no other frontend related libraries. Still buggy and not very impressive, I am still working on it lol." show_path="/src/assets/gif/personal.gif" />
-          <Section panelNum={9} title="And others of course" subtitle="Also check out my github!" header={false}/>
+          <Section panelNum={9} title="And others of course" subtitle="Check out my github!" header={false}/>
           <Contact panelNum={10} id="contact"/>
           <Message panelNum={11}/>
         
