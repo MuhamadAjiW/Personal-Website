@@ -1,5 +1,5 @@
 .showcase-title {
-    @apply xl:text-4xl text-3xl transition duration-300 w-full text-center xl:mt-10 mt-5
+    @apply xl:text-5xl text-3xl transition duration-300 w-full text-center xl:mt-10 mt-5 font-bold
     dark:text-white
     ;
 }

@@ -15,9 +15,9 @@ const Personal : React.FC<{panelNum: number, id?: string}> = ({panelNum: pageNum
 
                 <div className="flex flex-col justify-center">
                   <h2 className="personal-title">
-                      My name is Muhamad Aji Wibisono
+                      Muhamad Aji Wibisono
                   </h2>
-                  <p className="personal-subtitle mt-10">
+                  <p className="personal-subtitle">
                     I'm an undergraduate informatics student at Institut Teknologi Bandung. This is my website, I guess?
                   </p>
                 </div>

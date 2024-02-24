@@ -10,7 +10,7 @@ interface PageProps {
 
 const Panel : React.FC<PageProps> = ({panelNum: pageNum, children, id}) => {
     const [isVisible, setVisible] = useState(false);
-    const hidden_style = useRef("page-canvas opacity-0");
+    const hidden_style = useRef("page-canvas hidden");
     let startPoint = pageNum * window.innerHeight;
     let endPoint = (pageNum + 1) * window.innerHeight;
 

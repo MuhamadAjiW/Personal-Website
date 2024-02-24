@@ -27,18 +27,18 @@ export default {
       },
       keyframes: {
         'fade-in': {
-          '0%': { opacity: 0, transform: 'translateY(20px)' },
-          '100%': { opacity: 1, transform: 'translateY(0)' },
+          '0%': { opacity: 0, transform: 'translateY(20px)', visibility: 'hidden' },
+          '100%': { opacity: 1, transform: 'translateY(0)', visibility: 'block' },
         },
         'fade-out': {
-          '0%': { opacity: 1, transform: 'translateY(0)' },
-          '100%': { opacity: 0, transform: 'translateY(20px)' },
+          '0%': { opacity: 1, transform: 'translateY(0)', visibility: 'block' },
+          '100%': { opacity: 0, transform: 'translateY(20px)', visibility: 'hidden' },
         },
       },
 
       animation: {
-        'fade-in': 'fade-in 0.5s ease-out',
-        'fade-out': 'fade-out 0.5s',
+        'fade-in': 'fade-in 0.5s ease-out forwards',
+        'fade-out': 'fade-out 0.5s forwards',
       }
 
     },
