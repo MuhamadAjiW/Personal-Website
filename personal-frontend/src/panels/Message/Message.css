@@ -1,0 +1,23 @@
+.message-title {
+    @apply xl:text-7xl text-2xl transition duration-300 xl:mb-14 mb-4
+    dark:text-white
+    ;
+}
+
+.message-name-area {
+    @apply rounded-md p-2 border border-primary xl:w-[60%] w-[80%] resize-none 
+    dark:text-white dark:border-gray-700 dark:bg-d-lv-1
+    ;
+}
+
+.message-text-area {
+    @apply rounded-md p-2 border border-primary xl:w-[60%] w-[80%] h-[30%] resize-none 
+    dark:text-white dark:border-gray-700 dark:bg-d-lv-1
+    ;
+}
+
+.message-text-button {
+    @apply rounded-md bg-primary text-white px-4 py-2 hover:opacity-medium transition duration-300
+    dark:bg-d-primary dark:text-white dark:border-gray-700
+    ;
+}
