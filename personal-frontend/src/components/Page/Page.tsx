@@ -4,10 +4,11 @@ import { debounce } from "../../util/func";
 
 interface PageProps {
   pageNum: number;
+  id?: string;
   children: ReactNode;
 }
 
-const Page : React.FC<PageProps> = ({pageNum, children}) => {
+const Page : React.FC<PageProps> = ({pageNum, children, id}) => {
     const [isVisible, setVisible] = useState(false);
     const hidden_style = useRef("page-canvas opacity-0");
     let startPoint = pageNum * window.innerHeight;
@@ -40,7 +41,7 @@ const Page : React.FC<PageProps> = ({pageNum, children}) => {
 
     return (
       <>
-        <div className="page-base">
+        <div className="page-base" id={id? id : ""}>
           <div className={isVisible? "page-canvas animate-fade-in opacity-1" : hidden_style.current}>
             {children}
           </div>

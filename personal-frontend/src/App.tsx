@@ -12,9 +12,9 @@ function App() {
         <Container>
           <Navbar/>
 
-          <Hello pageNum={0}/>
+          <Hello pageNum={0} id="home"/>
           <Clear pageNum={1}/>
-          <Personal pageNum={2}/>
+          <Personal pageNum={2} id="about"/>
         
         </Container>
       </DarkModeProvider>
