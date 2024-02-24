@@ -9,7 +9,7 @@ const Personal : React.FC<{panelNum: number, id?: string}> = ({panelNum: pageNum
             <div className="flex h-full w-full items-center justify-center">
               <div className="flex xl:flex-row xl:gap-10 xl:w-[60vw] flex-col gap-10 p-10 w-full">
                 <div className="flex items-center justify-center">
-                  <img className="min-w-96" src="/src/assets/images/personal.png" alt="Image of the website's owner"/>
+                  <img className="min-w-96 max-h-96" src="/src/assets/images/personal.png" alt="Image of the website's owner"/>
                 </div>
                 
 
@@ -18,7 +18,10 @@ const Personal : React.FC<{panelNum: number, id?: string}> = ({panelNum: pageNum
                       Muhamad Aji Wibisono
                   </h2>
                   <p className="personal-subtitle">
-                    I'm an undergraduate informatics student at Institut Teknologi Bandung. This is my website, I guess?
+                    I'm a 3rd year undergraduate informatics engineering student at Institut Teknologi Bandung. This is my website, I made this because why not.
+                  </p>
+                  <p className="personal-subtitle">
+                    Nice to meet you, I guess?
                   </p>
                 </div>
               </div>
