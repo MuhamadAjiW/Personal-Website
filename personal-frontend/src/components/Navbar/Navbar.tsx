@@ -18,6 +18,7 @@ const Navbar : React.FC<null> = () => {
                 <ul className="flex space-x-10">
                     <li><a href="#home" className="navbar-button">Home</a></li>
                     <li><a href="#about" className="navbar-button">About Me</a></li>
+                    <li><a href="#porto" className="navbar-button">Portofolio</a></li>
                     <li><a href="#contact" className="navbar-button">Contact Me!</a></li>
                 </ul>
             </div>
