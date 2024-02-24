@@ -26,7 +26,7 @@ export class MessageController{
             res.status(StatusCodes.CREATED).json({
                 message: "Message Received",
                 valid: true,
-                data: result
+                data: message
             })
 
             console.log(`[${currentTime}] New message received: ${message.content}`);

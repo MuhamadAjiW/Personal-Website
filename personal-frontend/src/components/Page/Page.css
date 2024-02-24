@@ -1,0 +1,7 @@
+.page-base {
+    @apply flex h-screen items-center justify-center;
+}
+
+.page-text {
+    @apply text-9xl animate-wiggle;
+}
