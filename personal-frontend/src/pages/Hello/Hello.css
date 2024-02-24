@@ -1,0 +1,5 @@
+.hello-title {
+    @apply xl:text-9xl text-3xl transition duration-300
+    dark:text-white
+    ;
+}

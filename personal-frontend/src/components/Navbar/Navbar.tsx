@@ -8,6 +8,7 @@ const Navbar : React.FC<null> = () => {
 
     return (
       <>
+        {/* Large screen */}
         <nav className="hidden md:block">
             <div className="navbar-base">
                 
@@ -22,6 +23,11 @@ const Navbar : React.FC<null> = () => {
             </div>
             </div>
         </nav>
+
+        {/* Small screen */}
+        <div className="md:hidden fixed bottom-4 right-4 z-50">
+          <ToggleButton onToggle={toggleDarkMode} checked={darkMode} />
+        </div>
       </>
     )
   }
