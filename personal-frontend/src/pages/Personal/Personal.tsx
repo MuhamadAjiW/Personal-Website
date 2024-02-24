@@ -7,9 +7,21 @@ const Personal : React.FC<{pageNum: number, id?: string}> = ({pageNum, id}) => {
       <>
         <Page pageNum={pageNum} id={id}>
             <div className="flex h-full w-full items-center justify-center">
-                <h1 className="personal-title">
-                    Hi!
-                </h1>
+              <div className="flex xl:flex-row xl:gap-10 xl:w-[60vw] flex-col gap-10 p-10 w-full">
+                <div className="flex items-center">
+                  <img src="/src/assets/images/personal.png" alt="Description of the image"/>
+                </div>
+                
+
+                <div className="flex flex-col justify-center">
+                  <h2 className="personal-title">
+                      My name is Muhamad Aji Wibisono
+                  </h2>
+                  <p className="personal-subtitle mt-10">
+                    I'm an undergraduate informatics student at Institut Teknologi Bandung. This is my website, I guess?
+                  </p>
+                </div>
+              </div>
             </div>
         </Page>
       </>

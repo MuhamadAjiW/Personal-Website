@@ -8,7 +8,7 @@ const Hello : React.FC<{pageNum: number, id?: string}> = ({pageNum, id}) => {
         <Page pageNum={pageNum} id={id}>
             <div className="flex h-full w-full items-center justify-center">
                 <h1 className="hello-title">
-                    Hi! I'm Aji Wibisono 👋
+                    Hi! I'm Awe 👋
                 </h1>
             </div>
         </Page>

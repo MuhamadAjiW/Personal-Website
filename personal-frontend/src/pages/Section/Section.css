@@ -1,0 +1,11 @@
+.section-title {
+    @apply xl:text-9xl text-5xl transition duration-300
+    dark:text-white
+    ;
+}
+
+.section-subtitle {
+    @apply xl:text-3xl text-base transition duration-300
+    dark:text-white
+    ;
+}
