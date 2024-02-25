@@ -5,7 +5,6 @@ import { MessagePostReq } from "../types/MessagePostReq";
 import { StatusCodes } from "http-status-codes";
 import { MessageFetchReq } from "../types/MessageFetchReq";
 import { BadRequestError } from "../types/errors/BadRequestError";
-import { error } from "console";
 import { MessageDeleteReq } from "../types/MessageDeleteReq";
 import { MessageIdReq } from "../types/MessageIdReq";
 
