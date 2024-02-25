@@ -1,18 +1,19 @@
 import Navbar from "./components/Navbar/Navbar"
 import { DarkModeProvider } from "./context/DarkModeContext";
 import { ToastProvider } from "./context/ToastContext";
-import Container from "./components/Container/Container";
 import Hello from "./panels/Hello/Hello";
 import Personal from "./panels/Personal/Personal";
 import Section from "./panels/Section/Section";
 import Contact from "./panels/Contact/Contact";
 import Showcase from "./panels/Showcase/Showcase";
 import Message from "./panels/Message/Message";
+import { LoadingProvider } from "./context/LoadingContext";
 
 function App() {
   return (
     <>
       <DarkModeProvider>
+        <LoadingProvider>
         <ToastProvider>
           <Navbar/>
 
@@ -30,6 +31,7 @@ function App() {
           <Message panelNum={11}/>
       
         </ToastProvider>
+        </LoadingProvider>
       </DarkModeProvider>
     </>
   )

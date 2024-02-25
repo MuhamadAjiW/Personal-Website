@@ -56,7 +56,7 @@ const Navbar : React.FC = () => {
 
 
           {/* Small screen */}
-          <div className="md:hidden flex items-center fixed bottom-4 right-4 z-50">
+          <div className="md:hidden flex items-center fixed bottom-4 right-4 z-10">
             <ToggleButton onToggle={toggleDarkMode} checked={darkMode} />
             <button 
               className="navbar-popup-button"

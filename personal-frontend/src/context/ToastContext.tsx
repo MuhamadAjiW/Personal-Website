@@ -13,7 +13,7 @@ interface ToastContextProps {
 }
 
 const initialContextValue: ToastContextProps = {
-    showToast: (type: ToastType, message: string) => {},
+    showToast: () => {},
   };
 
 const ToastContext = createContext<ToastContextProps>(initialContextValue);

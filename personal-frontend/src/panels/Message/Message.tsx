@@ -4,8 +4,11 @@ import Panel from "../../components/Panel/Panel"
 import axios from "axios";
 import { Config } from "../../util/config";
 import { ToastContext, ToastType } from "../../context/ToastContext";
+import { LoadingContext } from "../../context/LoadingContext";
 
 const Message : React.FC<{panelNum: number, id?: string}> = ({panelNum: pageNum, id}) => {
+    const { setLoading: toggleLoading } = useContext(LoadingContext);
+    
     const nameLimit: number = 128;
     const messageLimit: number = 2048;
 
@@ -20,12 +23,16 @@ const Message : React.FC<{panelNum: number, id?: string}> = ({panelNum: pageNum,
     const [messageError, setMessageError] = useState(false);
 
     const handleSubmit = async () => {
+        toggleLoading(true);
+
         if(nameError || messageError){
             let errorString = "";
 
             if(nameError) errorString += "Name too long! "
             if(messageError) errorString += "Message too long! "
             showToast(ToastType.ERROR, "Error: " + errorString);
+            
+            toggleLoading(false);
             return;
         }
 
@@ -47,6 +54,9 @@ const Message : React.FC<{panelNum: number, id?: string}> = ({panelNum: pageNum,
                 showToast(ToastType.ERROR, "Error setting up the request: " + error.message);
             }
         })
+        .finally(() =>{
+            toggleLoading(false);
+        })
     }
 
     const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +68,6 @@ const Message : React.FC<{panelNum: number, id?: string}> = ({panelNum: pageNum,
     const onMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(e.target.value);
         setMessageCount(e.target.value.length);
-        console.log(e.target.value.length > messageLimit)
         setMessageError(e.target.value.length > messageLimit);
     }
 
