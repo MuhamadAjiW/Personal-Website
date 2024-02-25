@@ -5,19 +5,30 @@
 }
 
 .message-name-area {
-    @apply rounded-md p-2 border border-primary xl:w-[60%] w-[80%] resize-none bg-gray-50
+    @apply rounded-md p-2 border border-primary xl:w-[60%] w-[80%] resize-none bg-gray-50 mt-5
     dark:text-white dark:border-gray-700 dark:bg-d-lv-1
     ;
 }
 
 .message-text-area {
-    @apply rounded-md p-2 border border-primary xl:w-[60%] w-[80%] h-[30%] resize-none bg-gray-50
+    @apply rounded-md p-2 border border-primary xl:w-[60%] w-[80%] h-[30%] resize-none bg-gray-50  mt-5
     dark:text-white dark:border-gray-700 dark:bg-d-lv-1
     ;
 }
 
+.message-text-counter {
+    @apply xl:w-[60%] w-[80%] text-primary
+    dark:text-primary-d
+    ;
+}
+
 .message-text-button {
-    @apply rounded-md bg-primary text-white px-4 py-2 hover:opacity-medium transition duration-300
-    dark:bg-primary-d dark:text-white dark:border-gray-700
+    @apply rounded-md bg-primary text-white px-4 py-2 hover:opacity-medium transition duration-300 mt-10
+    dark:bg-primary-d dark:border-gray-700
+    ;
+}
+
+.message-error {
+    @apply border-red-500 dark:border-red-900 text-red-500 dark:text-red-800
     ;
 }

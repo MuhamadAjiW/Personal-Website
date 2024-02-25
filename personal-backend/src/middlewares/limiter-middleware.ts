@@ -7,7 +7,7 @@ export const limiterMiddleware = rateLimit({
     max: 20,
     handler: (req: Request, res: Response) => {
         return res.status(StatusCodes.TOO_MANY_REQUESTS).json({
-            message: "Too many requests, please try again in 5 minutes.",
+            message: "Too many requests, please try again later.",
             valid: false,
             data: null
         });
