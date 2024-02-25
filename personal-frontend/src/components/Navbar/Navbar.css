@@ -17,7 +17,7 @@
 }
 
 .navbar-popup {
-    @apply flex flex-col align-middle fixed bottom-16 right-4 bg-white shadow-md animate-fade-in
+    @apply flex flex-col align-middle fixed bottom-16 right-4 bg-white shadow-md transition duration-100
     dark:text-white dark:bg-d-lv-1
     ;
 }

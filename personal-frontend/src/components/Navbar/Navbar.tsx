@@ -7,10 +7,11 @@ import { debounce } from "../../util/func"
 const Navbar : React.FC = () => {
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
     const [menuOpen, setMenuOpen] = useState(false);
-    const menuRef = useRef<HTMLUListElement>(null);
+    const menuRef = useRef<HTMLDivElement>(null);
 
     const toggleMenu = () => {
-      setMenuOpen(!menuOpen);
+      console.log("button:", menuOpen);
+      setMenuOpen(prevMenuOpen => !prevMenuOpen);
     }
 
     const handleResize = () => {
@@ -20,6 +21,7 @@ const Navbar : React.FC = () => {
 
     let handleDocumentClick = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        console.log("click:", menuRef.current.parentNode);
         setMenuOpen(false)
       }
     };
@@ -56,20 +58,18 @@ const Navbar : React.FC = () => {
 
 
           {/* Small screen */}
-          <div className="md:hidden flex items-center fixed bottom-4 right-4 z-10">
+          <div className="md:hidden flex items-center fixed bottom-4 right-4 z-10" ref={menuRef}>
             <ToggleButton onToggle={toggleDarkMode} checked={darkMode} />
             <button 
               className="navbar-popup-button"
               onClick={toggleMenu}/>
               
-              {menuOpen && (
-                <ul className="navbar-popup" ref={menuRef}>
-                  <li className="navbar-popup-entry"><a href="#home" className="navbar-popup-entry-text">Home</a></li>
-                  <li className="navbar-popup-entry"><a href="#about" className="navbar-popup-entry-text">About Me</a></li>
-                  <li className="navbar-popup-entry"><a href="#porto" className="navbar-popup-entry-text">Portofolio</a></li>
-                  <li className="navbar-popup-entry"><a href="#contact" className="navbar-popup-entry-text">Contact Me!</a></li>
-                </ul>
-              )}
+            <ul className={`navbar-popup ${menuOpen? "animate-fade-in" : "animate-fade-out"}`}>
+              <li className="navbar-popup-entry"><a href="#home" className="navbar-popup-entry-text">Home</a></li>
+              <li className="navbar-popup-entry"><a href="#about" className="navbar-popup-entry-text">About Me</a></li>
+              <li className="navbar-popup-entry"><a href="#porto" className="navbar-popup-entry-text">Portofolio</a></li>
+              <li className="navbar-popup-entry"><a href="#contact" className="navbar-popup-entry-text">Contact Me!</a></li>
+            </ul>
           </div>
         </nav>
 

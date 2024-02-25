@@ -42,8 +42,8 @@ export default {
       },
 
       animation: {
-        'fade-in': 'fade-in 0.5s ease-out forwards',
-        'fade-out': 'fade-out 0.5s forwards',
+        'fade-in': 'fade-in 0.3s ease-out forwards',
+        'fade-out': 'fade-out 0.3s forwards',
       }
 
     },
