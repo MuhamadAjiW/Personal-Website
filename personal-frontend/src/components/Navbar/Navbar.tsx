@@ -7,9 +7,11 @@ import { debounce } from "../../util/func"
 const Navbar : React.FC = () => {
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [shown, setShown] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
 
     const toggleMenu = () => {
+      if(!shown) setShown(true);
       console.log("button:", menuOpen);
       setMenuOpen(prevMenuOpen => !prevMenuOpen);
     }
@@ -64,7 +66,7 @@ const Navbar : React.FC = () => {
               className="navbar-popup-button"
               onClick={toggleMenu}/>
               
-            <ul className={`navbar-popup ${menuOpen? "animate-fade-in" : "animate-fade-out"}`}>
+            <ul className={`navbar-popup ${menuOpen? "animate-fade-in" : shown? "animate-fade-out" : "hidden"}`}>
               <li className="navbar-popup-entry"><a href="#home" className="navbar-popup-entry-text">Home</a></li>
               <li className="navbar-popup-entry"><a href="#about" className="navbar-popup-entry-text">About Me</a></li>
               <li className="navbar-popup-entry"><a href="#porto" className="navbar-popup-entry-text">Portofolio</a></li>

@@ -9,15 +9,19 @@ interface PageProps {
 }
 
 const Panel : React.FC<PageProps> = ({panelNum: pageNum, children, id}) => {
-    const [isVisible, setVisible] = useState(false);
-    const hidden_style = useRef("page-canvas hidden");
-    const pageBaseRef = useRef(null);
-    let startPoint = pageNum * window.innerHeight;
-    let endPoint = (pageNum + 1) * window.innerHeight;
+    const [pageStyle, setPageStyle] = useState("page-canvas hidden");
+    let shown: boolean = false;
+    let startPoint: number = pageNum * window.innerHeight;
+    let endPoint: number = (pageNum + 1) * window.innerHeight;
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setVisible(scrollPosition >= startPoint && scrollPosition < endPoint);
+      if(scrollPosition >= startPoint && scrollPosition < endPoint){
+        setPageStyle("page-canvas animate-fade-in");
+        shown = true;
+      } else if(shown){
+        setPageStyle("page-canvas animate-fade-out");
+      }
     };
 
     const handleResize = () => {
@@ -27,10 +31,12 @@ const Panel : React.FC<PageProps> = ({panelNum: pageNum, children, id}) => {
     const debouncedResize = debounce(handleResize, 50);
 
     useEffect(() => {
-      hidden_style.current += " animate-fade-out";
-
       const scrollPosition = window.scrollY;
-      setVisible(scrollPosition >= startPoint && scrollPosition < endPoint);
+
+      if(scrollPosition >= startPoint && scrollPosition < endPoint){
+        setPageStyle("page-canvas animate-fade-in");
+        shown = true;
+      }
 
       window.addEventListener('scroll', handleScroll);
       window.addEventListener('resize', debouncedResize);
@@ -42,8 +48,8 @@ const Panel : React.FC<PageProps> = ({panelNum: pageNum, children, id}) => {
 
     return (
       <>
-        <div className="page-base" id={id? id : ""} ref={pageBaseRef}>
-          <div className={isVisible? "page-canvas animate-fade-in opacity-1" : hidden_style.current}>
+        <div className="page-base" id={id? id : ""}>
+          <div className={pageStyle}>
             {children}
           </div>
         </div>
