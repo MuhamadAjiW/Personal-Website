@@ -13,5 +13,7 @@ export class MessageRoute implements Route{
         return Router()
             .post('/api/message',
                 this.messageController.post())
+            .get('/api/message',
+                this.messageController.get());
     }
 }
