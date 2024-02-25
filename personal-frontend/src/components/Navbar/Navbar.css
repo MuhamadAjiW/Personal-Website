@@ -12,7 +12,7 @@
 
 .navbar-popup-button {
     @apply w-16 h-8 ml-5 mb-1 text-white bg-primary rounded-3xl hover:opacity-medium transition duration-300
-    dark:bg-d-primary
+    dark:bg-primary-d
     ;
 }
 

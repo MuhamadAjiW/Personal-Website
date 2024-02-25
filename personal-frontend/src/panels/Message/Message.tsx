@@ -1,24 +1,34 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import "./Message.css"
 import Panel from "../../components/Panel/Panel"
 import axios from "axios";
 import { Config } from "../../util/config";
+import { ToastContext, ToastType } from "../../context/ToastContext";
 
 const Message : React.FC<{panelNum: number, id?: string}> = ({panelNum: pageNum, id}) => {
+    const { showToast } = useContext(ToastContext);
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
 
     const handleSubmit = async () => {
-        try {
-            const response = await axios.post(Config.BE_URI + "/api/message" ,{
-                from: name,
-                content: message
-            })
-
-            console.log(response.data);
-        } catch (error) {
-            console.log("Error:", error);
-        }
+        await axios.post(Config.BE_URI + "/api/message" ,{
+            from: name,
+            content: message
+        })
+        .then(() => {
+            setName("");
+            setMessage("");
+            showToast(ToastType.SUCCESS, "Message sent successfully");
+        })
+        .catch((error) => {
+            if (error.response) {
+                showToast(ToastType.ERROR, "Server error: " + error.response.data.message);
+            } else if (error.request) {
+                showToast(ToastType.ERROR, "No response from the server");
+            } else {
+                showToast(ToastType.ERROR, "Error setting up the request: " + error.message);
+            }
+        })
     }
 
     return (

@@ -35,8 +35,10 @@ const Navbar : React.FC = () => {
 
     return (
       <>
-        {/* Large screen */}
-        <nav className="hidden md:block">
+        <nav>
+          {/* Large screen */}
+          <div className="hidden md:block">
+
             <div className="navbar-base">
                 
                 <ToggleButton onToggle={toggleDarkMode} checked={darkMode}/>
@@ -50,24 +52,27 @@ const Navbar : React.FC = () => {
                 </ul>
             </div>
             </div>
+          </div>
+
+
+          {/* Small screen */}
+          <div className="md:hidden flex items-center fixed bottom-4 right-4 z-50">
+            <ToggleButton onToggle={toggleDarkMode} checked={darkMode} />
+            <button 
+              className="navbar-popup-button"
+              onClick={toggleMenu}/>
+              
+              {menuOpen && (
+                <ul className="navbar-popup" ref={menuRef}>
+                  <li className="navbar-popup-entry"><a href="#home" className="navbar-popup-entry-text">Home</a></li>
+                  <li className="navbar-popup-entry"><a href="#about" className="navbar-popup-entry-text">About Me</a></li>
+                  <li className="navbar-popup-entry"><a href="#porto" className="navbar-popup-entry-text">Portofolio</a></li>
+                  <li className="navbar-popup-entry"><a href="#contact" className="navbar-popup-entry-text">Contact Me!</a></li>
+                </ul>
+              )}
+          </div>
         </nav>
 
-        {/* Small screen */}
-        <div className="md:hidden flex items-center fixed bottom-4 right-4 z-50">
-          <ToggleButton onToggle={toggleDarkMode} checked={darkMode} />
-          <button 
-            className="navbar-popup-button"
-            onClick={toggleMenu}/>
-            
-            {menuOpen && (
-              <ul className="navbar-popup" ref={menuRef}>
-                <li className="navbar-popup-entry"><a href="#home" className="navbar-popup-entry-text">Home</a></li>
-                <li className="navbar-popup-entry"><a href="#about" className="navbar-popup-entry-text">About Me</a></li>
-                <li className="navbar-popup-entry"><a href="#porto" className="navbar-popup-entry-text">Portofolio</a></li>
-                <li className="navbar-popup-entry"><a href="#contact" className="navbar-popup-entry-text">Contact Me!</a></li>
-              </ul>
-            )}
-        </div>
       </>
     )
   }
