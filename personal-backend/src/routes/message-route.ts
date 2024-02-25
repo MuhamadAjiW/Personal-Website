@@ -18,7 +18,6 @@ export class MessageRoute implements Route{
         return Router()
             .post('/api/message',
                 limiterMiddleware,
-                this.authMiddleware.authenticate(AuthTypes.FEONLY),
                 this.messageController.post())
             .get('/api/message',
                 this.authMiddleware.authenticate(AuthTypes.DASHONLY),
