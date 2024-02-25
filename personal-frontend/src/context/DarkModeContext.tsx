@@ -21,7 +21,9 @@ const DarkModeProvider : React.FC<{ children: ReactNode }> = ({children}) => {
 
     return (
         <DarkModeContext.Provider value={{darkMode, toggleDarkMode}}>
-            {children}
+            <div className={darkMode? 'dark' : ''}>
+                {children}
+            </div>
         </DarkModeContext.Provider>
     )
 }
