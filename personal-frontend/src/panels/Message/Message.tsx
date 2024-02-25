@@ -47,7 +47,7 @@ const Message : React.FC<{panelNum: number, id?: string}> = ({panelNum: pageNum,
         })
         .catch((error) => {
             if (error.response) {
-                showToast(ToastType.ERROR, "Server error: " + error.response.data.message ? error.response.data.message : error.response);
+                showToast(ToastType.ERROR, "Server error: " + error.response.data.message);
             } else if (error.request) {
                 showToast(ToastType.ERROR, "No response from the server");
             } else {
