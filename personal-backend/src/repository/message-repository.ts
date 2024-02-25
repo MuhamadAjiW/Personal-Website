@@ -72,4 +72,16 @@ export class MessageRepository{
 
         return result;
     }
+
+    async deleteById(
+        id: string,
+    ){
+        const collection = await this.getCollection();
+        const query = {id: id};
+
+        let result = await collection
+            .deleteOne(query)
+
+        return result;
+    }
 }

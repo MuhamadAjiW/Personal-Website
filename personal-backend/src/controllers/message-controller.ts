@@ -6,6 +6,8 @@ import { StatusCodes } from "http-status-codes";
 import { MessageFetchReq } from "../types/MessageFetchReq";
 import { BadRequestError } from "../types/errors/BadRequestError";
 import { error } from "console";
+import { MessageDeleteReq } from "../types/MessageDeleteReq";
+import { MessageIdReq } from "../types/MessageIdReq";
 
 export class MessageController{
     private messageRepository: MessageRepository;
@@ -42,18 +44,14 @@ export class MessageController{
 
     get(){
         return async(req: Request, res: Response) => {
-            console.log(req.query);
             const requestCheck = MessageFetchReq.safeParse({
                 asc: req.query.asc === "true",
                 amount: req.query.amount? parseInt(req.query.amount as string) : undefined,
                 startDate: req.query.startDate? new Date(req.query.startDate as string) : undefined,
                 endDate: req.query.endDate? new Date(req.query.endDate as string) : undefined
             });
-            console.log(requestCheck);
-            if(!requestCheck.success) {
-                console.log(requestCheck.error);
-                throw new BadRequestError("Bad query");
-            }
+            if(!requestCheck.success) throw new BadRequestError("Bad query"); 
+
 
             const requestData = requestCheck.data;
 
@@ -72,6 +70,54 @@ export class MessageController{
             })
             
             console.log(`[${currentTime}] Messages fetched: ${result.length}`);
+        }
+    }
+
+    delete(){
+        return async(req: Request, res: Response) => {
+            const requestCheck = MessageDeleteReq.safeParse({
+                startDate: new Date(req.query.startDate as string),
+                endDate: new Date(req.query.endDate as string)
+            });
+            if(requestCheck.success){
+                const requestData = requestCheck.data;
+        
+                const currentTime = new Date();
+                const result = await this.messageRepository.delete(
+                    requestData.startDate,
+                    requestData.endDate
+                );
+        
+                res.status(StatusCodes.OK).json({
+                    message: "Message Received",
+                    valid: true,
+                    data: result
+                })
+                
+                console.log(`[${currentTime}] Messages deleted: ${result.deletedCount}`);
+
+                return;
+            }
+
+            const requestCheckId = MessageIdReq.safeParse(req.query);
+            if(requestCheckId.success){
+                const requestData = requestCheckId.data;
+        
+                const currentTime = new Date();
+                const result = await this.messageRepository.deleteById(
+                    requestData.id
+                );
+        
+                res.status(StatusCodes.OK).json({
+                    message: "Message Received",
+                    valid: true,
+                    data: result
+                })
+                
+                console.log(`[${currentTime}] Messages deleted: ${result.deletedCount}`);
+
+                return;
+            }
         }
     }
 }
