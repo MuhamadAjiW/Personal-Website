@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react"
 import "./Panel.css"
 import { debounce } from "../../util/func";
+import { GAlogPageView } from "../../util/ga";
 
 interface PageProps {
   panelNum: number;
@@ -32,6 +33,8 @@ const Panel : React.FC<PageProps> = ({panelNum: pageNum, children, id}) => {
 
     useEffect(() => {
       const scrollPosition = window.scrollY;
+
+      if(id) GAlogPageView(id);
 
       if(scrollPosition >= startPoint && scrollPosition < endPoint){
         setPageStyle("page-canvas animate-fade-in");
