@@ -8,8 +8,11 @@ import Contact from "./panels/Contact/Contact";
 import Showcase from "./panels/Showcase/Showcase";
 import Message from "./panels/Message/Message";
 import { LoadingProvider } from "./context/LoadingContext";
+import { GAinit } from "./util/ga";
 
 function App() {
+  GAinit();
+  
   return (
     <>
       <DarkModeProvider>
