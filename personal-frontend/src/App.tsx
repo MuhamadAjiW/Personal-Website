@@ -8,10 +8,11 @@ import Contact from "./panels/Contact/Contact";
 import Showcase from "./panels/Showcase/Showcase";
 import Message from "./panels/Message/Message";
 import { LoadingProvider } from "./context/LoadingContext";
-import { GAinit } from "./util/ga";
+import ReactGA from "react-ga4";
+import { Config } from "./util/config";
 
 function App() {
-  GAinit();
+  ReactGA.initialize(Config.GA_CODE);
   
   return (
     <>
