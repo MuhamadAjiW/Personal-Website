@@ -11,9 +11,9 @@ import { LoadingProvider } from "./context/LoadingContext";
 import ReactGA from "react-ga4";
 import { Config } from "./util/config";
 
-function App() {
-  ReactGA.initialize(Config.GA_CODE);
-  
+ReactGA.initialize(Config.GA_CODE);
+
+function App() {  
   return (
     <>
       <DarkModeProvider>

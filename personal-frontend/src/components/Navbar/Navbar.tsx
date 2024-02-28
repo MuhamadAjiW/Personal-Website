@@ -12,7 +12,6 @@ const Navbar : React.FC = () => {
 
     const toggleMenu = () => {
       if(!shown) setShown(true);
-      console.log("button:", menuOpen);
       setMenuOpen(prevMenuOpen => !prevMenuOpen);
     }
 
@@ -23,7 +22,6 @@ const Navbar : React.FC = () => {
 
     let handleDocumentClick = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        console.log("click:", menuRef.current.parentNode);
         setMenuOpen(false)
       }
     };
