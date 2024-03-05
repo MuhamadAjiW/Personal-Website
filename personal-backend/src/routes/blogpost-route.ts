@@ -4,26 +4,27 @@ import { Route } from "../types/interfaces/Route";
 import { AuthMiddleware } from "../middlewares/auth-middleware";
 import { AuthTypes } from "../types/enums/AuthTypes";
 import { limiterMiddleware } from "../middlewares/limiter-middleware";
+import { BlogpostController } from "../controllers/blogpost-controller";
 
-export class MessageRoute implements Route {
-    messageController: MessageController;
+export class BlogpostRoute implements Route {
+    blogpostController: BlogpostController;
     authMiddleware: AuthMiddleware;
 
     constructor(){
-        this.messageController = new MessageController();
+        this.blogpostController = new BlogpostController();
         this.authMiddleware = new AuthMiddleware();
     }
 
     getRoutes(): Router{
         return Router()
-            .post('/api/message',
-                limiterMiddleware,
-                this.messageController.post())
-            .get('/api/message',
+            .post('/api/blogpost',
                 this.authMiddleware.authenticate(AuthTypes.DASHONLY),
-                this.messageController.get())
-            .delete('/api/message',
+                this.blogpostController.post())
+            .get('/api/blogpost',
                 this.authMiddleware.authenticate(AuthTypes.DASHONLY),
-                this.messageController.delete());
+                this.blogpostController.get())
+            .delete('/api/blogpost',
+                this.authMiddleware.authenticate(AuthTypes.DASHONLY),
+                this.blogpostController.delete());
     }
 }
