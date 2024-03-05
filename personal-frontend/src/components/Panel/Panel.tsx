@@ -18,6 +18,8 @@ const Panel : React.FC<PageProps> = ({panelNum: pageNum, children, id}) => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       if(scrollPosition >= startPoint && scrollPosition < endPoint){
+        if(id) ReactGA.send({ hitType: "pageview", page: `/#${id}`, title: `${id} panel` });
+        
         setPageStyle("page-canvas animate-fade-in");
         shown = true;
       } else if(shown){
@@ -33,8 +35,6 @@ const Panel : React.FC<PageProps> = ({panelNum: pageNum, children, id}) => {
 
     useEffect(() => {
       const scrollPosition = window.scrollY;
-
-      if(id) ReactGA.send({ hitType: "pageview", page: `/#${id}`, title: `${id} panel` });
 
       if(scrollPosition >= startPoint && scrollPosition < endPoint){
         setPageStyle("page-canvas animate-fade-in");
