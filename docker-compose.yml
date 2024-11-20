@@ -4,4 +4,9 @@ services:
     container_name: personal-db
     image: mongo:latest
     ports:
-      - 27017:27017
+      - 50003:27017
+    volumes:
+      - db_data:/data/db
+
+volumes:
+  db_data:
