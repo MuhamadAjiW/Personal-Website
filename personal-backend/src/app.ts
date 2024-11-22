@@ -1,7 +1,7 @@
+import { SERVER_PORT } from "./utils/config";
 import { Express, Request, Response } from "express";
 import express from 'express';
 import cors from 'cors';
-import { SERVER_PORT } from "./utils/config";
 import { badRequestErrorHandler, conflictErrorHandler, generalErrorHandler, notFoundErrorHandler, unauthorizedErrorHandler } from './middlewares/error-middleware';
 import bodyParser from "body-parser";
 import { MessageRoute } from "./routes/message-route";
