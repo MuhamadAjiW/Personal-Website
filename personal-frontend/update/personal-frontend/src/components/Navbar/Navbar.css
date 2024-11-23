@@ -1,0 +1,35 @@
+.navbar-base {
+    @apply fixed flex py-2 px-20 h-20 w-full bg-blue-100 justify-between items-center transition duration-300 z-10
+    dark:bg-d-lv-1
+    ;
+}
+
+.navbar-button {
+    @apply text-xl hover:opacity-light transition duration-300
+    dark:text-white
+    ;
+}
+
+.navbar-popup-button {
+    @apply w-16 h-8 ml-5 mb-1 text-white bg-primary rounded-3xl hover:opacity-medium transition duration-300
+    dark:bg-primary-d
+    ;
+}
+
+.navbar-popup {
+    @apply flex flex-col align-middle fixed bottom-16 right-4 bg-white shadow-md transition duration-100
+    dark:text-white dark:bg-d-lv-1
+    ;
+}
+
+.navbar-popup-entry {
+    @apply h-full w-full text-xl transition duration-300 border border-d-lv-4 p-2 hover:bg-gray-200
+    dark:hover:bg-d-lv-4
+    ;
+}
+
+.navbar-popup-entry-text {
+    @apply flex h-full w-full text-xl hover:opacity-heavy transition duration-300 opacity-heavy
+    dark:text-white 
+    ;
+}
