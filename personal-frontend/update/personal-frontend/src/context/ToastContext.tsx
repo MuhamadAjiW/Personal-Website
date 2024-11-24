@@ -1,4 +1,4 @@
-import Toast from "@/components/Toast/Toast";
+import Toast from "@/components/custom-ui/Toast/Toast";
 import React, { ReactNode, createContext, useState } from "react";
 
 export enum ToastType {
@@ -46,7 +46,7 @@ const ToastProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
         setToastMessage(message);
 
         setTimeout(() => {
-            setToastClass(prevToastClass => prevToastClass + " animate-fade-out");
+            setToastClass(prevToastClass => prevToastClass + " animate-fadeOut");
         }, 1000)
     }
 

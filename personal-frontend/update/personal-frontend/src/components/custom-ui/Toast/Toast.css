@@ -1,0 +1,15 @@
+.toast-base {
+  @apply flex items-center fixed xl:top-28 top-8 left-4 z-20 border border-black rounded-xl p-4 transition duration-300 animate-fadeIn shadow-md bg-gray-100;
+}
+
+.toast-warning {
+  @apply flex items-center fixed xl:top-28 top-8 left-4 z-20 border border-black rounded-xl p-4 transition duration-300 animate-fadeIn shadow-md bg-warn;
+}
+
+.toast-error {
+  @apply flex items-center fixed xl:top-28 top-8 left-4 z-20 border border-black rounded-xl p-4 transition duration-300 animate-fadeIn shadow-md bg-error;
+}
+
+.toast-success {
+  @apply flex items-center fixed xl:top-28 top-8 left-4 z-20 border border-black rounded-xl p-4 transition duration-300 animate-fadeIn shadow-md bg-success;
+}

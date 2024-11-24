@@ -1,5 +1,5 @@
 import React from "react"
-import Panel from "@/components/Panel/Panel"
+import Panel from "@/components/custom-ui/Panel/Panel"
 import "./Contact.css"
 
 const Contact: React.FC<{ panelNum: number, id?: string }> = ({ panelNum: pageNum, id }) => {

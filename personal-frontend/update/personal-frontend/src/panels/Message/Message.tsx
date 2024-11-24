@@ -3,6 +3,8 @@ import { LoadingContext } from "@/context/LoadingContext";
 import { ToastContext, ToastType } from "@/context/ToastContext";
 import axios from "axios";
 import "./Message.css"
+import { Config } from "@/util/config";
+import Panel from "@/components/custom-ui/Panel/Panel";
 
 const Message: React.FC<{ panelNum: number, id?: string }> = ({ panelNum: pageNum, id }) => {
     const { setLoading: toggleLoading } = useContext(LoadingContext);

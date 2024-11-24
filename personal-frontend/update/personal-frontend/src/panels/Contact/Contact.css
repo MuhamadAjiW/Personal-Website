@@ -1,11 +1,7 @@
 .contact-title {
-    @apply xl:text-9xl text-5xl transition duration-300
-    dark:text-white
-    ;
+  @apply xl:text-9xl text-5xl transition duration-300;
 }
 
 .contact-icon {
-    @apply xl:w-40 w-16 text-black flex items-center transition duration-300 cursor-pointer
-    dark:text-white
-    ;
+  @apply xl:w-40 w-16 text-black flex items-center transition duration-300 cursor-pointer;
 }

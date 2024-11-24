@@ -1,11 +1,7 @@
 .personal-title {
-    @apply xl:text-4xl text-3xl transition duration-300 font-bold
-    dark:text-white
-    ;
+  @apply xl:text-4xl text-3xl transition duration-300 font-bold;
 }
 
 .personal-subtitle {
-    @apply xl:text-3xl text-lg transition duration-300 xl:mt-10 mt-5 text-justify
-    dark:text-white
-    ;
+  @apply xl:text-3xl text-lg transition duration-300 xl:mt-10 mt-5 text-justify;
 }

@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar/Navbar"
+import Navbar from "@/components/custom-ui/Navbar/Navbar"
 import { DarkModeProvider } from "@/context/DarkModeContext"
 import { LoadingProvider } from "@/context/LoadingContext"
 import { ToastProvider } from "@/context/ToastContext"

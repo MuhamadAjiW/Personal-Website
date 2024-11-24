@@ -1,8 +1,8 @@
 import { DarkModeContext } from "@/context/DarkModeContext";
 import React, { useContext, useEffect, useRef, useState } from "react"
 import { debounce } from "@/util/func";
-import ToggleButton from "../ToggleButton/ToggleButton";
 import "./Navbar.css"
+import { Switch } from "@/components/ui/switch";
 
 const Navbar: React.FC = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
 
           <div className="navbar-base">
 
-            <ToggleButton onToggle={toggleDarkMode} checked={darkMode} />
+            <Switch onCheckedChange={toggleDarkMode} checked={darkMode} />
 
             <div className="hidden md:flex flex-row">
               <ul className="flex space-x-10">
@@ -59,12 +59,12 @@ const Navbar: React.FC = () => {
 
         {/* Small screen */}
         <div className="md:hidden flex items-center fixed bottom-4 right-4 z-10" ref={menuRef}>
-          <ToggleButton onToggle={toggleDarkMode} checked={darkMode} />
+          <Switch onCheckedChange={toggleDarkMode} checked={darkMode} />
           <button
             className="navbar-popup-button"
             onClick={toggleMenu} />
 
-          <ul className={`navbar-popup ${menuOpen ? "animate-fade-in" : shown ? "animate-fade-out" : "hidden"}`}>
+          <ul className={`navbar-popup ${menuOpen ? "animate-fadeIn" : shown ? "animate-fadeOut" : "hidden"}`}>
             <li className="navbar-popup-entry"><a href="#home" className="navbar-popup-entry-text">Home</a></li>
             <li className="navbar-popup-entry"><a href="#about" className="navbar-popup-entry-text">About Me</a></li>
             <li className="navbar-popup-entry"><a href="#porto" className="navbar-popup-entry-text">Portofolio</a></li>

@@ -20,10 +20,10 @@ const Panel: React.FC<PageProps> = ({ panelNum: pageNum, children, id }) => {
     if (scrollPosition >= startPoint && scrollPosition < endPoint) {
       if (id) ReactGA.send({ hitType: "pageview", page: `/#${id}`, title: `${id} panel` });
 
-      setPageStyle("page-canvas animate-fade-in");
+      setPageStyle("page-canvas animate-fadeIn");
       shown = true;
     } else if (shown) {
-      setPageStyle("page-canvas animate-fade-out");
+      setPageStyle("page-canvas animate-fadeOut");
     }
   };
 
@@ -37,7 +37,7 @@ const Panel: React.FC<PageProps> = ({ panelNum: pageNum, children, id }) => {
     const scrollPosition = window.scrollY;
 
     if (scrollPosition >= startPoint && scrollPosition < endPoint) {
-      setPageStyle("page-canvas animate-fade-in");
+      setPageStyle("page-canvas animate-fadeIn");
       shown = true;
     }
 

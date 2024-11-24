@@ -1,5 +1,5 @@
 import React from "react"
-import Panel from "@/components/Panel/Panel"
+import Panel from "@/components/custom-ui/Panel/Panel"
 
 const Clear: React.FC<{ pageNum: number, id?: string }> = ({ pageNum, id }) => {
   return (
