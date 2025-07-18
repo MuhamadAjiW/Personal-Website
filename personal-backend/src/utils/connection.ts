@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb";
-import { DATABASE_URI } from "./config";
+import { env } from "./config";
 
 export class MongoDBConnection{
     static instance: MongoClient | null = null;
@@ -10,7 +10,7 @@ export class MongoDBConnection{
                 return MongoDBConnection.instance;
             }
 
-            const client = new MongoClient(DATABASE_URI);
+            const client = new MongoClient(env.DATABASE_URI);
             await client.connect();
             MongoDBConnection.instance = client;
             return MongoDBConnection.instance;

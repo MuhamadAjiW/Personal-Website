@@ -1,12 +1,32 @@
+
+import { z } from "zod";
 require('dotenv').config();
 
-console.log("SERVER_PORT is:");
-console.log(process.env.SERVER_PORT);
-console.log("DATABASE_URI is:");
-console.log(process.env.DATABASE_URI);
-console.log("DASH_TOKEN is:");
-console.log(process.env.DASH_TOKEN);
+const envSchema = z.object({
+  SERVER_PORT: z.string().default("5174"),
+  DATABASE_URI: z.string().default("mongodb://localhost:27017/personal"),
+  DASH_API_TOKEN: z.string().default("none"),
 
-export const SERVER_PORT: number = process.env.SERVER_PORT? +process.env.SERVER_PORT : 5174;
-export const DATABASE_URI: string = process.env.DATABASE_URI? process.env.DATABASE_URI : "mongodb://localhost:27017/personal";
-export const DASH_TOKEN: string = process.env.DASH_API_TOKEN? process.env.DASH_API_TOKEN : "none";
+  MAIL_HOST: z.string().default("localhost"),
+  MAIL_PORT: z.string().default("25"),
+  MAIL_SECURE: z.string().default("false").transform((val) => val === "true"),
+  MAIL_SENDER: z.string().default("no-reply@localhost"),
+  MAIL_RECEIVER: z.string().default(""),
+});
+
+const parsed = envSchema.safeParse(process.env);
+if (!parsed.success) {
+  console.error("Invalid environment variables:", parsed.error.message);
+  throw new Error("Invalid environment variables");
+}
+
+export const env = {
+  SERVER_PORT: +parsed.data.SERVER_PORT,
+  DATABASE_URI: parsed.data.DATABASE_URI,
+  DASH_API_TOKEN: parsed.data.DASH_API_TOKEN,
+  MAIL_HOST: parsed.data.MAIL_HOST,
+  MAIL_PORT: +parsed.data.MAIL_PORT,
+  MAIL_SECURE: parsed.data.MAIL_SECURE,
+  MAIL_SENDER: parsed.data.MAIL_SENDER,
+  MAIL_RECEIVER: parsed.data.MAIL_RECEIVER,
+};

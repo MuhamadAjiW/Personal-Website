@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import { UnauthorizedError } from "../types/errors/UnauthorizedError";
-import { DASH_TOKEN } from "../utils/config";
 import { AuthTypes } from "../types/enums/AuthTypes";
+import { env } from "../utils/config";
 
 export class AuthMiddleware {
     private checkDashKey(req: Request, res: Response, next: NextFunction, token: string) {
-        return token === DASH_TOKEN;
+        return token === env.DASH_API_TOKEN;
     }
 
     authenticate(authType: AuthTypes) {
