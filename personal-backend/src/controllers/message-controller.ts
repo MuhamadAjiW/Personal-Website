@@ -7,7 +7,7 @@ import { MessageFetchReq } from "../types/db/message/MessageFetchReq";
 import { BadRequestError } from "../types/errors/BadRequestError";
 import { MessageDeleteReq } from "../types/db/message/MessageDeleteReq";
 import { MessageIdReq } from "../types/db/message/MessageIdReq";
-import { sendMail } from "../utils/mail";
+import { sendMail, sendMailgun } from "../utils/mail";
 
 export class MessageController{
     private messageRepository: MessageRepository;
@@ -30,7 +30,7 @@ export class MessageController{
                 content: requestData.content
             })
 
-            sendMail(`New message from ${message.from}`, `<p><b>From:</b> ${message.from}</p><p>${message.content}</p>`)
+            sendMailgun(`New message from ${message.from}`, `${message.content}`)
 
             const result = await this.messageRepository.create(message);
 

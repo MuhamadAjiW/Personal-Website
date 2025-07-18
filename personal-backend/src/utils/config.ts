@@ -12,6 +12,9 @@ const envSchema = z.object({
   MAIL_SECURE: z.string().default("false").transform((val) => val === "true"),
   MAIL_SENDER: z.string().default("no-reply@localhost"),
   MAIL_RECEIVER: z.string().default(""),
+
+  MAILGUN_API_KEY: z.string().optional(),
+  MAILGUN_DOMAIN: z.string().optional(),
 });
 
 const parsed = envSchema.safeParse(process.env);
@@ -24,9 +27,13 @@ export const env = {
   SERVER_PORT: +parsed.data.SERVER_PORT,
   DATABASE_URI: parsed.data.DATABASE_URI,
   DASH_API_TOKEN: parsed.data.DASH_API_TOKEN,
+  
   MAIL_HOST: parsed.data.MAIL_HOST,
   MAIL_PORT: +parsed.data.MAIL_PORT,
   MAIL_SECURE: parsed.data.MAIL_SECURE,
   MAIL_SENDER: parsed.data.MAIL_SENDER,
   MAIL_RECEIVER: parsed.data.MAIL_RECEIVER,
+
+  MAILGUN_API_KEY: parsed.data.MAILGUN_API_KEY,
+  MAILGUN_DOMAIN: parsed.data.MAILGUN_DOMAIN,
 };
